@@ -13,7 +13,7 @@ class CategoriesRespository implements ICategoryRepository {
   // colocar o private na frente para que não seja possível mais usar instanciar
   constructor() {
     this.repository = getRepository(Category);
-    // O getReposiry vem de dentro do typeorm e passamos a entidade pra dentro dele
+    // O getRepository vem de dentro do typeorm e passamos a entidade pra dentro dele
   }
 
   async create({ description, name }: ICreateCategoryDTO): Promise<void> {
