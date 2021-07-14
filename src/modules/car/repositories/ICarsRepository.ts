@@ -1,6 +1,5 @@
-import { Car } from "@modules/accounts/infra/typeorm/entities/Car";
-
 import { ICreateCarDTO } from "../dtos/ICreateCarDTO";
+import { Car } from "../infra/typeorm/entities/Car";
 
 interface ICarsRespository {
   create(data: ICreateCarDTO): Promise<void>;
