@@ -3,13 +3,14 @@ import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
 // eslint-disable-next-line import-helpers/order-imports
-import swaggerFile from "../../../swagger.json";
+import createConnection from "@shared/infra/typeorm";
 
-import "@shared/infra/typeorm";
+import swaggerFile from "../../../swagger.json";
 import "../container";
 import { AppError } from "../errors/AppError";
 import { router } from "./routes";
 
+createConnection();
 const app = express();
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
