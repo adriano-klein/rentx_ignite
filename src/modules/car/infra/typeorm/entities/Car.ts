@@ -3,12 +3,15 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
 import { Category } from "./Category";
+import { Specifications } from "./Specifications";
 
 @Entity("cars")
 class Car {
@@ -35,6 +38,14 @@ class Car {
 
   @Column()
   brand: string;
+
+  @ManyToMany(() => Specifications)
+  @JoinTable({
+    name: "specification_cars", // nome da tabela que já foi criada na migration
+    joinColumns: [{ name: "car_id" }], // pegar da tabela specification_cars qual a coluna que pertence a tabela de carros
+    inverseJoinColumns: [{ name: "specification_id" }], // nome da coluna que pertence a tabela de specification
+  })
+  specifications: Specifications[];
 
   @ManyToOne(() => Category)
   @JoinColumn({ name: "category_id" })
