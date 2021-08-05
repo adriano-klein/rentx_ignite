@@ -13,6 +13,9 @@ class SpecificationRepository implements ISpecificationRepository {
   constructor() {
     this.repository = getRepository(Specifications);
   }
+  findByIds(id: string[]): Promise<Specifications[]> {
+    throw new Error("Method not implemented.");
+  }
 
   async create({ name, description }: ICreateSpecificationDTO): Promise<void> {
     const specification = this.repository.create({
