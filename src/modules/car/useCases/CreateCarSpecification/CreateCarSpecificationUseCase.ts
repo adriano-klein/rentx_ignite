@@ -1,20 +1,30 @@
-import { SpecificationRepository } from "@modules/car/infra/typeorm/repositories/SpecificationRepository";
-import { ICarsRespository } from "@modules/car/repositories/ICarsRepository";
-import { ISpecificationRepository } from "@modules/car/repositories/ISpecificationRepository";
-import { AppError } from "@shared/infra/errors/AppError";
+import { inject, injectable } from "tsyringe";
+
+import { Car } from "@modules/car/infra/typeorm/entities/Car";
+// import { SpecificationRepository } from "@modules/car/infra/typeorm/repositories/SpecificationRepository";
+// import { ICarsRespository } from "@modules/car/repositories/ICarsRepository";
+// import { ISpecificationRepository } from "@modules/car/repositories/ISpecificationRepository";
+// import { AppError } from "@shared/infra/errors/AppError";
+
+import { AppError } from "../../../../shared/infra/errors/AppError";
+import { ICarsRespository } from "../../repositories/ICarsRepository";
+import { ISpecificationRepository } from "../../repositories/ISpecificationRepository";
 
 interface IRequest {
   car_id: string;
   specifications_id: string[];
 }
 
+@injectable()
 class CreateCarSpecificationUseCase {
   constructor(
+    @inject("CarsRepository")
     private carsRepository: ICarsRespository,
+    @inject("SpecificationRepository")
     private specificationRepository: ISpecificationRepository
   ) {}
 
-  async execute({ car_id, specifications_id }: IRequest): Promise<void> {
+  async execute({ car_id, specifications_id }: IRequest): Promise<Car> {
     const carExists = await this.carsRepository.findById(car_id);
 
     if (!carExists) {
@@ -28,6 +38,8 @@ class CreateCarSpecificationUseCase {
     carExists.specifications = specifications;
 
     await this.carsRepository.create(carExists);
+
+    return carExists;
   }
 }
 

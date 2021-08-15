@@ -1,9 +1,13 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
-import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
-import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
-import { AppError } from "@shared/infra/errors/AppError";
+// import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
+// import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
+// import { AppError } from "@shared/infra/errors/AppError";
+
+import { AppError } from "../../../../shared/infra/errors/AppError";
+import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { IUserRepository } from "../../repositories/IUserRepository";
 
 @injectable()
 class CreateUserUseCase {

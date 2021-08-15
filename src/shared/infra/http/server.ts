@@ -7,6 +7,7 @@ import createConnection from "@shared/infra/typeorm";
 
 import swaggerFile from "../../../swagger.json";
 import "../container";
+
 import { AppError } from "../errors/AppError";
 import { router } from "./routes";
 

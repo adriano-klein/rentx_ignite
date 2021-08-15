@@ -9,6 +9,7 @@ interface ICreateCarDTO {
   brand: string;
   category_id: string;
   specifications?: Specifications[];
+  id?: string;
 }
 
 export { ICreateCarDTO };

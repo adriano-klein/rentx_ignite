@@ -41,7 +41,7 @@ class Car {
 
   @ManyToMany(() => Specifications)
   @JoinTable({
-    name: "specification_cars", // nome da tabela que já foi criada na migration
+    name: "specifications_cars", // nome da tabela que já foi criada na migration
     joinColumns: [{ name: "car_id" }], // pegar da tabela specification_cars qual a coluna que pertence a tabela de carros
     inverseJoinColumns: [{ name: "specification_id" }], // nome da coluna que pertence a tabela de specification
   })

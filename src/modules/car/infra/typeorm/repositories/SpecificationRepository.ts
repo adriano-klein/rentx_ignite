@@ -13,24 +13,32 @@ class SpecificationRepository implements ISpecificationRepository {
   constructor() {
     this.repository = getRepository(Specifications);
   }
-  findByIds(id: string[]): Promise<Specifications[]> {
-    throw new Error("Method not implemented.");
-  }
 
-  async create({ name, description }: ICreateSpecificationDTO): Promise<void> {
+  async create({
+    name,
+    description,
+  }: ICreateSpecificationDTO): Promise<Specifications> {
     const specification = this.repository.create({
       description,
       name,
     });
 
     await this.repository.save(specification);
+
+    return specification;
   }
 
   async findByBame(name: string): Promise<Specifications> {
-    const specification = this.repository.findOne({
+    const specification = await this.repository.findOne({
       name,
     });
     return specification;
+  }
+
+  async findByIds(id: string[]): Promise<Specifications[]> {
+    const specifications = await this.repository.findByIds(id);
+
+    return specifications;
   }
 }
 
