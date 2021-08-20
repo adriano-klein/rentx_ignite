@@ -1,12 +1,11 @@
 import { getRepository, Repository } from "typeorm";
 
-import { ICarsImageRepository } from "@modules/car/repositories/ICarsImageRepository";
+import { ICarsImagesRepository } from "@modules/car/repositories/ICarsImagesRepository";
 
 import { CarImages } from "../entities/CarImages";
 
-class CarsImagesRespository implements ICarsImageRepository {
+class CarsImagesRepository implements ICarsImagesRepository {
   private repository: Repository<CarImages>;
-
   constructor() {
     this.repository = getRepository(CarImages);
   }
@@ -20,4 +19,4 @@ class CarsImagesRespository implements ICarsImageRepository {
   }
 }
 
-export { CarsImagesRespository };
+export { CarsImagesRepository };
