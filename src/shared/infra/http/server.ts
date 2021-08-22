@@ -5,6 +5,7 @@ import swaggerUi from "swagger-ui-express";
 // eslint-disable-next-line import-helpers/order-imports
 import createConnection from "@shared/infra/typeorm";
 
+// eslint-disable-next-line import-helpers/order-imports
 import swaggerFile from "../../../swagger.json";
 import "../container";
 
