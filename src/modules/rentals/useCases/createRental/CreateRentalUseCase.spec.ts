@@ -1,17 +1,23 @@
 import dayjs from "dayjs";
 
+import { DayJsDateProvider } from "../../../../shared/infra/container/providers/dateProvider/implementations/DayJsDateProvider";
 import { AppError } from "../../../../shared/infra/errors/AppError";
 import { RentalsRepositoryInMemory } from "../../repositories/in-memory/RentalsRepositoryInMemory";
 import { CreateRentalUseCase } from "./CreateRentalUseCase";
 
 let createRentalUseCase: CreateRentalUseCase;
 let rentalRepositoryInMemory: RentalsRepositoryInMemory;
+let dayjsDateProvider: DayJsDateProvider;
 
 describe("Create Rental", () => {
   const dayAdd24Hours = dayjs().add(1, "day").toDate();
   beforeEach(() => {
     rentalRepositoryInMemory = new RentalsRepositoryInMemory();
-    createRentalUseCase = new CreateRentalUseCase(rentalRepositoryInMemory);
+    dayjsDateProvider = new DayJsDateProvider();
+    createRentalUseCase = new CreateRentalUseCase(
+      rentalRepositoryInMemory,
+      dayjsDateProvider
+    );
   });
 
   it("Should be able to create a new rental", async () => {
@@ -20,7 +26,6 @@ describe("Create Rental", () => {
       car_id: "121212",
       expected_return_date: dayAdd24Hours,
     });
-    console.log(rental);
 
     expect(rental).toHaveProperty("id");
     expect(rental).toHaveProperty("start_date");
