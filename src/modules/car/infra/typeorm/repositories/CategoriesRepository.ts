@@ -7,7 +7,7 @@ import {
 
 import { Category } from "../entities/Category";
 
-class CategoriesRespository implements ICategoryRepository {
+class CategoriesRepository implements ICategoryRepository {
   private repository: Repository<Category>;
   // Aqui o Repository vem de dentro do typeorm
 
@@ -36,4 +36,4 @@ class CategoriesRespository implements ICategoryRepository {
   }
 }
 
-export { CategoriesRespository };
+export { CategoriesRepository };

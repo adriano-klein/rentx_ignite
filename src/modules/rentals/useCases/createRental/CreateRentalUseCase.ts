@@ -1,3 +1,5 @@
+import { inject, injectable } from "tsyringe";
+
 import { IDateProvider } from "../../../../shared/infra/container/providers/dateProvider/IDateProvider";
 import { AppError } from "../../../../shared/infra/errors/AppError";
 import { Rental } from "../../infra/typeorm/entities/Rental";
@@ -8,10 +10,12 @@ interface IRequest {
   user_id: string;
   expected_return_date: Date;
 }
-
+@injectable()
 class CreateRentalUseCase {
   constructor(
-    private rentalRepository: IRentalsRepository,
+    @inject("RentalsRepository")
+    private rentalsRepository: IRentalsRepository,
+    @inject("DayJsDateProvider")
     private dateProvider: IDateProvider
   ) {}
   async execute({
@@ -21,7 +25,7 @@ class CreateRentalUseCase {
   }: IRequest): Promise<Rental> {
     const minimumHour = 24;
     // Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro
-    const carUnavailable = await this.rentalRepository.findOpenRentalByCar(
+    const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(
       car_id
     );
 
@@ -30,7 +34,7 @@ class CreateRentalUseCase {
     }
 
     // Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário
-    const rentalOpenToUser = await this.rentalRepository.findOpenRentalByUser(
+    const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(
       user_id
     );
 
@@ -48,7 +52,7 @@ class CreateRentalUseCase {
     if (compare < minimumHour) {
       throw new AppError("Invalid return date");
     }
-    const rental = this.rentalRepository.create({
+    const rental = this.rentalsRepository.create({
       user_id,
       car_id,
       expected_return_date,
