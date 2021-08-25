@@ -1,18 +1,18 @@
 import { container } from "tsyringe";
 import "./providers";
 
-import { UserRepository } from "@modules/accounts/infra/typeorm/repositories/UserRepository";
-import { ICarsRepository } from "@modules/accounts/repositories/ICarsRepository";
-import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
-import { CarsImagesRepository } from "@modules/car/infra/typeorm/repositories/CarsImagesRepository";
-import { CarsRepository } from "@modules/car/infra/typeorm/repositories/CarsRepository";
-import { CategoriesRepository } from "@modules/car/infra/typeorm/repositories/CategoriesRepository";
-import { SpecificationRepository } from "@modules/car/infra/typeorm/repositories/SpecificationRepository";
-import { ICarsImagesRepository } from "@modules/car/repositories/ICarsImagesRepository";
-import { ICategoryRepository } from "@modules/car/repositories/ICategoryRespository";
-import { ISpecificationRepository } from "@modules/car/repositories/ISpecificationRepository";
-import { RentalsRepository } from "@modules/rentals/infra/typeorm/repositories/RentalsRepository";
-import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
+import { UserRepository } from "../../../modules/accounts/infra/typeorm/repositories/UserRepository";
+import { ICarsRepository } from "../../../modules/accounts/repositories/ICarsRepository";
+import { IUserRepository } from "../../../modules/accounts/repositories/IUserRepository";
+import { CarsImagesRepository } from "../../../modules/car/infra/typeorm/repositories/CarsImagesRepository";
+import { CarsRepository } from "../../../modules/car/infra/typeorm/repositories/CarsRepository";
+import { CategoriesRepository } from "../../../modules/car/infra/typeorm/repositories/CategoriesRepository";
+import { SpecificationRepository } from "../../../modules/car/infra/typeorm/repositories/SpecificationRepository";
+import { ICarsImagesRepository } from "../../../modules/car/repositories/ICarsImagesRepository";
+import { ICategoryRepository } from "../../../modules/car/repositories/ICategoryRespository";
+import { ISpecificationRepository } from "../../../modules/car/repositories/ISpecificationRepository";
+import { RentalsRepository } from "../../../modules/rentals/infra/typeorm/repositories/RentalsRepository";
+import { IRentalsRepository } from "../../../modules/rentals/repositories/IRentalsRepository";
 
 container.registerSingleton<ICategoryRepository>(
   "CategoriesRepository",

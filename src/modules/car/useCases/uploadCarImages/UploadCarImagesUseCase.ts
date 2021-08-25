@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
-import { ICarsImagesRepository } from "@modules/car/repositories/ICarsImagesRepository";
+import { ICarsImagesRepository } from "../../repositories/ICarsImagesRepository";
 
 interface IRequest {
   car_id: string;

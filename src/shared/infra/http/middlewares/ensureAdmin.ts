@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 
-import { UserRepository } from "@modules/accounts/infra/typeorm/repositories/UserRepository";
-import { AppError } from "@shared/infra/errors/AppError";
+import { UserRepository } from "../../../../modules/accounts/infra/typeorm/repositories/UserRepository";
+import { AppError } from "../../errors/AppError";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function ensureAdmin(
