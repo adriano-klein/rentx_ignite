@@ -34,7 +34,7 @@ export async function ensureAuthenticated(
 
     // Chamamos o UserRepository para checar se o id do usuário existe
     const userRepository = new UserRepository();
-    const user = userRepository.findById(user_id);
+    const user = await userRepository.findById(user_id);
 
     // Caso o id não exista retorna o erro User does not exists
     if (!user) {
