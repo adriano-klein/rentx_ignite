@@ -6,11 +6,14 @@
       "contact":"adriano25klein@gmail.com"
     },
     "paths": {
-      "categories": {
+      "/categories": {
         "post": {
           "tags":["Category"],
           "summary" : "Create a category",
           "description": "Create a new category",
+          "security": [
+            { "bearerAuth":[] } 
+          ],
           "requestBody": {
             "content": {
               "application/json": {
@@ -121,6 +124,38 @@
           }
         }
       }
+    },
+    "/sessions": {
+      "post": {
+        "tags": ["Session"],
+        "summary": "User Authentication",
+        "description": "User Authentication",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Incorrect Email or Password"
+          }
+        }
+      }
     }
   },
  "definitions":{
@@ -133,6 +168,15 @@
        "description": {
          "type":"string"
        }
+     }
+   }
+ },
+ "components":{
+   "securitySchemes":{
+     "bearerAuth": {
+       "type": "http",
+       "scheme": "bearer",
+       "bearerFormat": "JWT"
      }
    }
  }
