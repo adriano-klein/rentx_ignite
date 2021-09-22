@@ -43,9 +43,8 @@ class CreateRentalUseCase {
     );
 
     if (rentalOpenToUser) {
-      throw new AppError("There is a open rental for this user");
+      throw new AppError("There is an open rental for this user");
     }
-
     // O aluguel deve ter duração mínima de 24 horas
     const dateNow = this.dateProvider.dateNow();
     const compare = this.dateProvider.compareInHours(

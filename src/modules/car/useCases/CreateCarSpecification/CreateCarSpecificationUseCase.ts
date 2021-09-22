@@ -7,7 +7,7 @@ import { Car } from "../../infra/typeorm/entities/Car";
 // import { ISpecificationRepository } from "@modules/car/repositories/ISpecificationRepository";
 // import { AppError } from "@shared/infra/errors/AppError";
 
-import { ICarsRespository } from "../../repositories/ICarsRepository";
+import { ICarsRepository } from "../../repositories/ICarsRepository";
 import { ISpecificationRepository } from "../../repositories/ISpecificationRepository";
 
 interface IRequest {
@@ -19,7 +19,7 @@ interface IRequest {
 class CreateCarSpecificationUseCase {
   constructor(
     @inject("CarsRepository")
-    private carsRepository: ICarsRespository,
+    private carsRepository: ICarsRepository,
     @inject("SpecificationRepository")
     private specificationRepository: ISpecificationRepository
   ) {}
