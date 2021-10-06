@@ -53,3 +53,13 @@ Deve ser possível cadastrar um novo aluguel
 O aluguel deve ter duração mínima de 24 horas.
 Não deve possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
 Não deve possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
+
+# Recuperação de senha
+**RF**
+- Deve ser possível o usuário recuperar a senha informando o email
+- O usuário deve receber um email com o passo a passo para a recuperação de senha
+- O usuário deve conseguir inserir uma nova senha
+
+**RN**
+- O usuário precisar informar uma nova senha
+- O link enviado para recuperação de senha deve expirar em 3 horas
