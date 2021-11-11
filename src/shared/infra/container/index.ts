@@ -1,12 +1,12 @@
 import { container } from "tsyringe";
+
 import "./providers";
 
-import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
-import { IUserTokensRepository } from "@modules/accounts/repositories/IUserTokensRepository";
-
 import { UserRepository } from "../../../modules/accounts/infra/typeorm/repositories/UserRepository";
+import { UsersTokensRepository } from "../../../modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 import { ICarsRepository } from "../../../modules/accounts/repositories/ICarsRepository";
 import { IUserRepository } from "../../../modules/accounts/repositories/IUserRepository";
+import { IUserTokensRepository } from "../../../modules/accounts/repositories/IUserTokensRepository";
 import { CarsImagesRepository } from "../../../modules/car/infra/typeorm/repositories/CarsImagesRepository";
 import { CarsRepository } from "../../../modules/car/infra/typeorm/repositories/CarsRepository";
 import { CategoriesRepository } from "../../../modules/car/infra/typeorm/repositories/CategoriesRepository";

@@ -1,4 +1,4 @@
-// import { Specifications } from "@modules/car/infra/typeorm/entities/Specifications";
+// import { Specifications } from "../../../../modules/car/infra/typeorm/entities/Specifications";
 import { Specifications } from "../../infra/typeorm/entities/Specifications";
 import {
   ICreateSpecificationDTO,

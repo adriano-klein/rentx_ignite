@@ -2,11 +2,11 @@ import { resolve } from "path";
 import { inject, injectable } from "tsyringe";
 import { v4 as uuidV4 } from "uuid";
 
-import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
-import { IUserTokensRepository } from "@modules/accounts/repositories/IUserTokensRepository";
-import { IDateProvider } from "@shared/infra/container/providers/dateProvider/IDateProvider";
-import { IMailProvider } from "@shared/infra/container/providers/MailProvider/IMailProvider";
-import { AppError } from "@shared/infra/errors/AppError";
+import { IDateProvider } from "../../../../shared/infra/container/providers/dateProvider/IDateProvider";
+import { IMailProvider } from "../../../../shared/infra/container/providers/MailProvider/IMailProvider";
+import { AppError } from "../../../../shared/infra/errors/AppError";
+import { IUserRepository } from "../../repositories/IUserRepository";
+import { IUserTokensRepository } from "../../repositories/IUserTokensRepository";
 
 @injectable()
 class SendForgottenPasswordMailUseCase {

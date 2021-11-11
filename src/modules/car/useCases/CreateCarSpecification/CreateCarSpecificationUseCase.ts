@@ -2,9 +2,9 @@ import { inject, injectable } from "tsyringe";
 
 import { AppError } from "../../../../shared/infra/errors/AppError";
 import { Car } from "../../infra/typeorm/entities/Car";
-// import { SpecificationRepository } from "@modules/car/infra/typeorm/repositories/SpecificationRepository";
-// import { ICarsRespository } from "@modules/car/repositories/ICarsRepository";
-// import { ISpecificationRepository } from "@modules/car/repositories/ISpecificationRepository";
+// import { SpecificationRepository } from "../../../../modules/car/infra/typeorm/repositories/SpecificationRepository";
+// import { ICarsRespository } from "../../../../modules/car/repositories/ICarsRepository";
+// import { ISpecificationRepository } from "../../../../modules/car/repositories/ISpecificationRepository";
 // import { AppError } from "@shared/infra/errors/AppError";
 
 import { ICarsRepository } from "../../repositories/ICarsRepository";

@@ -2,16 +2,11 @@ import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
-import auth from "@config/auth";
-import { IUserTokensRepository } from "@modules/accounts/repositories/IUserTokensRepository";
-
-// import { IUserRepository } from "@modules/accounts/repositories/IUserRepository";
-// import { AppError } from "@shared/infra/errors/AppError";
-
-import { IDateProvider } from "@shared/infra/container/providers/dateProvider/IDateProvider";
-
+import auth from "../../../../config/auth";
+import { IDateProvider } from "../../../../shared/infra/container/providers/dateProvider/IDateProvider";
 import { AppError } from "../../../../shared/infra/errors/AppError";
 import { IUserRepository } from "../../repositories/IUserRepository";
+import { IUserTokensRepository } from "../../repositories/IUserTokensRepository";
 
 interface IRequest {
   email: string;

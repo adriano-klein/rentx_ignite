@@ -1,4 +1,4 @@
-// import { Car } from "@modules/car/infra/typeorm/entities/Car";
+// import { Car } from "../../../../modules/car/infra/typeorm/entities/Car";
 
 // import { ICarsRespository } from "../../repositories/ICarsRepository";
 

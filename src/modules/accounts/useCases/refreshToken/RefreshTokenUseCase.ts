@@ -1,10 +1,10 @@
 import { sign, verify } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
-import auth from "@config/auth";
-import { IUserTokensRepository } from "@modules/accounts/repositories/IUserTokensRepository";
-import { IDateProvider } from "@shared/infra/container/providers/dateProvider/IDateProvider";
-import { AppError } from "@shared/infra/errors/AppError";
+import auth from "../../../../config/auth";
+import { IDateProvider } from "../../../../shared/infra/container/providers/dateProvider/IDateProvider";
+import { AppError } from "../../../../shared/infra/errors/AppError";
+import { IUserTokensRepository } from "../../repositories/IUserTokensRepository";
 
 interface IPayload {
   sub: string;

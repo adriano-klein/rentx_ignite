@@ -1,4 +1,4 @@
-// import { CarsRepositoryInMemory } from "@modules/car/repositories/in-memory/CarsRepositoryInMemory";
+// import { CarsRepositoryInMemory } from "../../../../modules/car/repositories/in-memory/CarsRepositoryInMemory";
 import { CarsRepositoryInMemory } from "../../repositories/in-memory/CarsRepositoryInMemory";
 import { ListAvailableCarsUseCase } from "./ListAvailableCarsUseCase";
 
