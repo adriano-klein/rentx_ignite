@@ -29,7 +29,7 @@ describe("Authenticate Users", () => {
   });
   it("should be able to authenticate an user", async () => {
     const user: ICreateUserDTO = {
-      driver_licence: "000123456",
+      driver_license: "000123456",
       email: "user@test.com.br",
       password: "11223344",
       name: "Test Name",
@@ -56,7 +56,7 @@ describe("Authenticate Users", () => {
 
   it("Should not be able to authenticate with a incorrect password", async () => {
     const user: ICreateUserDTO = {
-      driver_licence: "1234569",
+      driver_license: "1234569",
       email: "user@testerror.com.br",
       password: "11223344",
       name: "Test Name",
