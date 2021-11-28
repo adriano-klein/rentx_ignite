@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
 import auth from "../../../../config/auth";
-import { UserRepository } from "../../../../modules/accounts/infra/typeorm/repositories/UserRepository";
 import { UsersTokensRepository } from "../../../../modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 import { AppError } from "../../errors/AppError";
 
@@ -18,7 +17,6 @@ export async function ensureAuthenticated(
 ) {
   // Pega o token que é passado no authorization do header
   const authHeader = request.headers.authorization;
-  const usersTokensRepository = new UsersTokensRepository();
 
   // checa se existe um token no header e se mão existir retorna token is missing
   if (!authHeader) {
@@ -30,20 +28,8 @@ export async function ensureAuthenticated(
 
   try {
     // Verifica se o token é válido e caso não seja retorna invalid token
-    const { sub: user_id } = verify(
-      token,
-      auth.secret_refresh_token
-    ) as IPayload;
+    const { sub: user_id } = verify(token, auth.secret_token) as IPayload;
 
-    const user = await usersTokensRepository.findByUserIdAndRefreshToken(
-      user_id,
-      token
-    );
-
-    // Caso o id não exista retorna o erro User does not exists
-    if (!user) {
-      throw new AppError("User does not exists", 401);
-    }
     request.user = {
       id: user_id,
     };
