@@ -37,7 +37,7 @@ carsRoute.post(
   "/images/:id",
   ensureAuthenticated,
   ensureAdmin,
-  upload.array("images"), // Este images está lá no controoler. Precisa ser exatamente igual
+  upload.array("images"), // Este images está lá no controller. Precisa ser exatamente igual
   uploadCarImagesController.handle
 );
 
