@@ -3,7 +3,7 @@
   "port": 65432,
   "host": "localhost",
   "username":"docker",
-  "password":"ignite",
+  "password":"123@troca",
   "database": "rentx",
   "entities": [
     "./src/modules/car/infra/typeorm/entities/*.ts",
